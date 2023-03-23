@@ -20,7 +20,7 @@ const overrides = {
 
 server.on('message', (msg, rinfo) => {
   let req = dnsPacket.decode(msg);
-  console.log(req);
+  console.log("REQUEST:", req);
 
   if (overrides[req.questions[0].name]) {
     let answers = [];
@@ -64,14 +64,10 @@ server.on('message', (msg, rinfo) => {
   }
 
   const request = https.request(options, (response) => {
-    console.log('statusCode:', response.statusCode)
-    console.log('headers:', response.headers)
-
     response.on('data', (d) => {
-
       let r = dnsPacket.decode(d);
       r.id = req.id;
-      console.log(r);
+      console.log("RESPONSE:",r);
 
       let resp = dnsPacket.encode(r);
       server.send(resp, 0, resp.length, rinfo.port, rinfo.address);
