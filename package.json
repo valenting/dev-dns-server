@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dns-packet": "^5.4.0",
+    "native-dns": "^0.7.0"
+  }
+}
