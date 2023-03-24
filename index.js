@@ -42,7 +42,7 @@ server.on('message', (msg, rinfo) => {
     return;
   }
 
-  const https = require('https')
+  const https = require('https');
   let fwPacket = {
     type: 'query',
     id: 0,
