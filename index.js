@@ -11,12 +11,7 @@ let HOST = process.argv[3] || "127.0.42.42";
 
 server.bind(PORT, HOST);
 
-const overrides = {
-  "bla.test" : {"A" : [{type: "A", name: "bla.test", data: "127.0.0.1"}],
-                "AAAA" : [{type: "AAAA",name: "bla.test", ttl:55, data: "feaa::1"}],
-                "CNAME" : [{type: "CNAME", name: "bla.test", data: "example.com"}]
-                },
-};
+const overrides = require("./overrides.json");
 
 server.on('message', (msg, rinfo) => {
   let req = dnsPacket.decode(msg);
