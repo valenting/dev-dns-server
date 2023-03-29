@@ -25,6 +25,19 @@ For example: `node index.js 4242 0.0.0.0` to listen on port 4242 on all interfac
 Note that running on a port higher than 999 does not require root permissions
 
 
+## Overrides
+
+The `overrides.json` config file looks like this:
+
+```json
+{
+  "doh.test" : {"A" : [{"type": "A", "name": "doh.test", "data": "1.2.3.4"}, {"type": "CNAME", "name": "doh.test", "data": "dns.shaw.ca"}]}
+}
+```
+
+The resolver will respond to a request of type `A` to `doh.test` with two records: One `A` record containing `1.2.3.4` and one `CNAME` record containing `dns.shaw.ca`.
+
+
 ## Inspect and override DNS requests
 
 ### Ubuntu / systemd-resolved
