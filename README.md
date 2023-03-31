@@ -9,7 +9,7 @@ Currently any DNS request that cannot be fulfilled by the override list will be 
 ## Install
 
 ```
-git clone git@github.com:valenting/dev-dns-server.git
+git clone https://github.com/valenting/dev-dns-server.git
 cd dev-dns-server/
 npm install
 sudo node index.js
