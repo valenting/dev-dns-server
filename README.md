@@ -54,3 +54,13 @@ sudo service systemd-resolved restart # to pickup config changes
 resolvectl # to inspect active resolver
 sudo node index.js # Make sure the dev-dns-server is running 🙂
 ```
+
+### Windows
+
+You can use the following instructions to set your DNS server on Windows: [link](https://www.hellotech.com/guide/for/how-to-change-dns-server-windows-mac)
+
+### OSX
+
+OSX doesn't like running a server on 127.0.42.42.
+You need to run `sudo node index.js 53 127.0.0.1`.
+Then you can change the DNS server using these instructions: [link](https://support.apple.com/guide/mac-help/change-dns-settings-on-mac-mh14127/mac)
