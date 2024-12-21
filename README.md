@@ -15,7 +15,7 @@ npm install
 sudo node index.js
 ```
 
-By default the server starts on 127.0.42.42 port 52.
+By default the server starts on 127.0.42.42 port 53.
 To make the DNS server listen on some other port run:
 ```
 node index.js [PORT] [HOSTNAME]

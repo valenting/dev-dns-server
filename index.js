@@ -1,4 +1,4 @@
-let dnsPacket = require("dns-packet");
+let dnsPacket = require("moz-dns-packet");
 const dgram = require('dgram')
 const server = dgram.createSocket('udp4');
 server.on('listening', () => {
@@ -11,7 +11,8 @@ let HOST = process.argv[3] || "127.0.42.42";
 
 server.bind(PORT, HOST);
 
-const overrides = require("./overrides.json");
+const requireJSON5 = require("require-json5");
+const overrides = requireJSON5("./overrides.json");
 
 server.on('message', (msg, rinfo) => {
   let req = dnsPacket.decode(msg);
