@@ -18,21 +18,23 @@ server.on('message', (msg, rinfo) => {
   console.log("REQUEST:", req);
 
   if (overrides[req.questions[0].name]) {
+    let override = overrides[req.questions[0].name];
     let answers = [];
     try {
-      answers = overrides[req.questions[0].name][req.questions[0].type]
-    } catch(e) { console.log(e)};
+      answers = override[req.questions[0].type] || [];
+    } catch(e) { console.log(e); }
 
     let response = {
       type: "response",
       id: req.id,
       questions: req.questions,
       answers: answers,
+      rcode: override.rcode || "NOERROR" // Use the provided rcode or default to NOERROR.
     };
+
     console.log(response);
 
     let resp = dnsPacket.encode(response);
-
     server.send(resp, 0, resp.length, rinfo.port, rinfo.address);
     return;
   }

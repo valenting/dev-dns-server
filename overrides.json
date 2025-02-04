@@ -1,3 +1,4 @@
 {
-  "doh.test" : {"A" : [{"type": "A", "name": "doh.test", "data": "1.2.3.4"}, {"type": "CNAME", "name": "doh.test", "data": "dns.shaw.ca"}]}
+  "doh.test" : {"A" : [{"type": "A", "name": "doh.test", "data": "1.2.3.4"}, {"type": "CNAME", "name": "doh.test", "data": "dns.shaw.ca"}]},
+  "negative.test": { "rcode": "NXDOMAIN" }
 }
